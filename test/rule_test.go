@@ -3,6 +3,7 @@ package test
 import (
 	"context"
 	"fmt"
+	"gin_mani_center/conf"
 	"gin_mani_center/handler"
 	pb_mani "gin_mani_center/pb"
 	"testing"
@@ -20,4 +21,8 @@ func TestAddRule(t *testing.T) {
 	}
 	resp, err := handler.AddRule(context.Background(), req)
 	fmt.Println(resp, err)
+}
+
+func TestConfig(t *testing.T){
+	fmt.Println(conf.GetConfig())
 }

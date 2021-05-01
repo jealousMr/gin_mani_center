@@ -11,7 +11,8 @@ import (
 var dbProxy *gorm.DB
 
 func InitDB() (err error) {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", conf.DbUserName, conf.DbPassword, conf.ServerIp, conf.DbPort, conf.DbName)
+	cf := conf.GetConfig()
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", cf.Database.User, cf.Database.Pass, cf.Server.Ip, cf.Database.Port, cf.Database.Name)
 	dbProxy, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	return
 }

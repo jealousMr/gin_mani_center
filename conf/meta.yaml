@@ -1,0 +1,9 @@
+server:
+  port: ":8089"
+  ip: "47.93.22.146"
+
+database:
+  port: "3306"
+  user: "dms"
+  pass: "lcx-machine0918LMY"
+  name: "manidb"
