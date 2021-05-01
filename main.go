@@ -44,8 +44,9 @@ func (s S) UpdateRule(ctx context.Context, req *pb_mani.UpdateRuleReq) (*pb_mani
 }
 
 func main() {
+	cf := conf.GetConfig()
 	logx.Infof("start mani center server")
-	lis, err := net.Listen("tcp", conf.ServerPort)
+	lis, err := net.Listen("tcp", cf.Server.Ip)
 	if err != nil {
 		log.Fatal("failed to listen")
 	}
