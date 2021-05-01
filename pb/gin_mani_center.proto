@@ -1,0 +1,65 @@
+syntax = "proto3";
+import "common.proto";
+package pb_mani;
+
+
+
+message AddRuleReq{
+    Rule rule = 1;
+    Base base = 255;
+}
+
+message AddRuleResp{
+   BaseResp base_resp = 255;
+}
+
+message GetRuleByRuleTypeReq{
+   RuleType rule_type = 1;
+   int64 page_no = 2;
+   int64 page_size = 3;
+   Base base = 255;
+}
+message GetRuleByRuleTypeResp{
+  repeated Rule rule_list = 1;
+  PageStruct page = 2;
+  BaseResp base_resp = 255;
+}
+
+message GetRuleByConditionReq{
+  string rule_id = 1;
+  string user = 2; // 规则发起者(可以是用户或者系统)
+  RuleType rule_type = 3;
+  RuleState rule_state = 4;
+  ExecuteType execute_type = 5; // 是否立刻执行
+  Base base = 255;
+}
+
+message GetRuleByConditionResp{
+  map<string,Rule> rules = 1;
+  BaseResp base_resp = 255;
+}
+
+message UpdateRuleReq{
+  string rule_id = 1;
+  RuleType rule_type = 2;
+  RuleState rule_state = 3;
+  ExecuteType execute_type = 4;
+  string desc_text = 5; // 文字描述
+  string source_url = 6; // 图片链接/地址
+  string source_name = 7; //图片名字
+  FileState source_state = 8;
+  Base base = 255;
+}
+
+message UpdateRuleResp{
+  BaseResp base_resp = 255;
+}
+
+
+
+service GinCenterService{
+  rpc AddRule(AddRuleReq) returns(AddRuleResp);
+  rpc GetRuleByRuleType(GetRuleByRuleTypeReq) returns(GetRuleByRuleTypeResp);
+  rpc GetRuleByCondition(GetRuleByConditionReq) returns(GetRuleByConditionResp);
+  rpc UpdateRule(UpdateRuleReq) returns(UpdateRuleResp);
+}

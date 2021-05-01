@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "common.proto";
+package pb_mani;
+
+
+message AddAndUpdateUserInfoReq{
+  UserInfo user_info = 1;
+  Base base = 255;
+}
+
+message AddAndUpdateUserInfoResp{
+  BaseResp base_resp = 255;
+}
+
+
+service GinUserService{
+  rpc AddAndUpdateUserInfo(AddAndUpdateUserInfoReq) returns(AddAndUpdateUserInfoResp);
+}

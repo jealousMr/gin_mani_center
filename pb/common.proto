@@ -1,0 +1,126 @@
+syntax = "proto3";
+package pb_mani;
+
+
+message Base{
+  int64 state = 1; // 状态码
+  string msg = 2; // 错误消息
+}
+
+message BaseResp{
+  int64 state = 1;
+  string msg = 2;
+}
+
+// 分页
+message PageStruct{
+  int64 page_no = 1;
+  int64 page_size = 2;
+  int64 total_count = 3;
+  bool has_more = 4;
+}
+
+///////// 用户model
+enum UserState{
+  user_state_undefine = 0;
+  user_state_valid = 1; // 有效用户
+  user_state_invalid = 2; // 无效用户
+}
+
+message UserInfo{
+  string user_id = 1; // 对应wx唯一id，openid
+  string nick_name = 2;
+  string avatar_url = 3; // 头像
+  int64 gender = 4;
+  string country = 5;
+  UserState user_state = 7;
+}
+
+message UserRecord{
+  string user_id = 1;
+  string rule_id = 2;
+  string extra = 3;
+}
+
+/////////center model
+enum FileState{
+  unknown_file_state = 0;
+  file_valid = 1;
+  file_invalid = 2;
+}
+enum RuleType{
+  unknown_rule_type = 0;
+  open_all = 1; // 图片和文字都由用户提供
+  default_all = 2; // 图片和文字都由系统提供
+  default_image = 3; // 文字可选用户提供
+}
+
+enum RuleState{
+  unknown_rule_state = 0;
+  rule_state_valid = 1;
+  rule_state_invalid = 2;
+}
+
+enum ExecuteType{
+  unknown_exec_type = 0;
+  exec_now_type = 1;
+  exec_delay_type = 2;
+}
+
+message RuleConfig{
+  string desc_text = 1; // 文字描述
+  string source_url = 2; // 图片链接/地址
+  string source_name = 3; //图片名字
+  FileState source_state = 4; // source_file是否存在
+}
+
+message Rule{
+  string rule_id = 1;
+  string user = 2; // 规则发起者(可以是用户或者系统)
+  RuleType rule_type = 3;
+  RuleConfig rule_config = 4;
+  RuleState rule_state = 5;
+  ExecuteType execute_type = 6; // 是否立刻执行
+}
+
+
+
+
+/////////engine model
+enum ExecuteState{
+  execute_unknow = 0;
+  execute_wait = 1; // 待执行
+  execute_success = 2; // 已完成
+  execute_failed = 3; // 执行失败
+  execute_running = 4; // 执行中
+}
+
+
+message Task{
+  string task_id = 1;
+  string rule_id = 2;
+  string operator = 3; // 执行用户
+  ExecuteState execute_state = 4;
+  string output_name = 5;
+  string output_url = 6;
+  FileState output_file = 7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
