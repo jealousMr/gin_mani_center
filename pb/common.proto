@@ -103,7 +103,7 @@ message Task{
   ExecuteState execute_state = 4;
   string output_name = 5;
   string output_url = 6;
-  FileState output_file = 7;
+  FileState output_state = 7;
 }
 
 

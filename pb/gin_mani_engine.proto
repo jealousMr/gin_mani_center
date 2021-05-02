@@ -30,8 +30,41 @@ message FileUriToCrmResp{
   BaseResp base_resp = 255;
 }
 
+message CreateTaskReq{
+  Task task = 1;
+  Base base = 255;
+}
+
+message CreateTaskResp{
+  BaseResp base_resp = 255;
+}
+
+message QueryTaskByConditionReq{
+  string task_id = 1;
+  string rule_id = 2;
+  ExecuteState execute_state = 3;
+  Base base = 255;
+}
+
+message QueryTaskByConditionResp{
+  repeated Task task_list = 1;
+  BaseResp base_resp = 255;
+}
+
+message UpdateTaskReq{
+  Task task = 1;
+  Base base = 255;
+}
+
+message UpdateTaskResp{
+  BaseResp base_resp = 255;
+}
+
 service GinEngineService{
   rpc FileUriToServer(FileUriToServerReq)returns(FileUriToServerResp); // 获得文件的存储位置
   rpc FileUriToCrm(FileUriToCrmReq) returns (FileUriToCrmResp); // 将内部地址转化为前端地址
 
+  rpc CreateTask(CreateTaskReq) returns(CreateTaskResp);
+  rpc QueryTaskByCondition(QueryTaskByConditionReq) returns (QueryTaskByConditionResp);
+  rpc UpdateTask(UpdateTaskReq) returns(UpdateTaskResp);
 }

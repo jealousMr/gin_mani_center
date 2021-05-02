@@ -316,6 +316,336 @@ func (x *FileUriToCrmResp) GetBaseResp() *BaseResp {
 	return nil
 }
 
+type CreateTaskReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Task *Task `protobuf:"bytes,1,opt,name=task,proto3" json:"task,omitempty"`
+	Base *Base `protobuf:"bytes,255,opt,name=base,proto3" json:"base,omitempty"`
+}
+
+func (x *CreateTaskReq) Reset() {
+	*x = CreateTaskReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gin_mani_engine_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateTaskReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateTaskReq) ProtoMessage() {}
+
+func (x *CreateTaskReq) ProtoReflect() protoreflect.Message {
+	mi := &file_gin_mani_engine_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateTaskReq.ProtoReflect.Descriptor instead.
+func (*CreateTaskReq) Descriptor() ([]byte, []int) {
+	return file_gin_mani_engine_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CreateTaskReq) GetTask() *Task {
+	if x != nil {
+		return x.Task
+	}
+	return nil
+}
+
+func (x *CreateTaskReq) GetBase() *Base {
+	if x != nil {
+		return x.Base
+	}
+	return nil
+}
+
+type CreateTaskResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	BaseResp *BaseResp `protobuf:"bytes,255,opt,name=base_resp,json=baseResp,proto3" json:"base_resp,omitempty"`
+}
+
+func (x *CreateTaskResp) Reset() {
+	*x = CreateTaskResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gin_mani_engine_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateTaskResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateTaskResp) ProtoMessage() {}
+
+func (x *CreateTaskResp) ProtoReflect() protoreflect.Message {
+	mi := &file_gin_mani_engine_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateTaskResp.ProtoReflect.Descriptor instead.
+func (*CreateTaskResp) Descriptor() ([]byte, []int) {
+	return file_gin_mani_engine_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CreateTaskResp) GetBaseResp() *BaseResp {
+	if x != nil {
+		return x.BaseResp
+	}
+	return nil
+}
+
+type QueryTaskByConditionReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	TaskId       string       `protobuf:"bytes,1,opt,name=task_id,json=taskId,proto3" json:"task_id,omitempty"`
+	RuleId       string       `protobuf:"bytes,2,opt,name=rule_id,json=ruleId,proto3" json:"rule_id,omitempty"`
+	ExecuteState ExecuteState `protobuf:"varint,3,opt,name=execute_state,json=executeState,proto3,enum=pb_mani.ExecuteState" json:"execute_state,omitempty"`
+	Base         *Base        `protobuf:"bytes,255,opt,name=base,proto3" json:"base,omitempty"`
+}
+
+func (x *QueryTaskByConditionReq) Reset() {
+	*x = QueryTaskByConditionReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gin_mani_engine_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryTaskByConditionReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryTaskByConditionReq) ProtoMessage() {}
+
+func (x *QueryTaskByConditionReq) ProtoReflect() protoreflect.Message {
+	mi := &file_gin_mani_engine_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryTaskByConditionReq.ProtoReflect.Descriptor instead.
+func (*QueryTaskByConditionReq) Descriptor() ([]byte, []int) {
+	return file_gin_mani_engine_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *QueryTaskByConditionReq) GetTaskId() string {
+	if x != nil {
+		return x.TaskId
+	}
+	return ""
+}
+
+func (x *QueryTaskByConditionReq) GetRuleId() string {
+	if x != nil {
+		return x.RuleId
+	}
+	return ""
+}
+
+func (x *QueryTaskByConditionReq) GetExecuteState() ExecuteState {
+	if x != nil {
+		return x.ExecuteState
+	}
+	return ExecuteState_execute_unknow
+}
+
+func (x *QueryTaskByConditionReq) GetBase() *Base {
+	if x != nil {
+		return x.Base
+	}
+	return nil
+}
+
+type QueryTaskByConditionResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	TaskList []*Task   `protobuf:"bytes,1,rep,name=task_list,json=taskList,proto3" json:"task_list,omitempty"`
+	BaseResp *BaseResp `protobuf:"bytes,255,opt,name=base_resp,json=baseResp,proto3" json:"base_resp,omitempty"`
+}
+
+func (x *QueryTaskByConditionResp) Reset() {
+	*x = QueryTaskByConditionResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gin_mani_engine_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryTaskByConditionResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryTaskByConditionResp) ProtoMessage() {}
+
+func (x *QueryTaskByConditionResp) ProtoReflect() protoreflect.Message {
+	mi := &file_gin_mani_engine_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryTaskByConditionResp.ProtoReflect.Descriptor instead.
+func (*QueryTaskByConditionResp) Descriptor() ([]byte, []int) {
+	return file_gin_mani_engine_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *QueryTaskByConditionResp) GetTaskList() []*Task {
+	if x != nil {
+		return x.TaskList
+	}
+	return nil
+}
+
+func (x *QueryTaskByConditionResp) GetBaseResp() *BaseResp {
+	if x != nil {
+		return x.BaseResp
+	}
+	return nil
+}
+
+type UpdateTaskReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Task *Task `protobuf:"bytes,1,opt,name=task,proto3" json:"task,omitempty"`
+	Base *Base `protobuf:"bytes,255,opt,name=base,proto3" json:"base,omitempty"`
+}
+
+func (x *UpdateTaskReq) Reset() {
+	*x = UpdateTaskReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gin_mani_engine_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateTaskReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTaskReq) ProtoMessage() {}
+
+func (x *UpdateTaskReq) ProtoReflect() protoreflect.Message {
+	mi := &file_gin_mani_engine_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTaskReq.ProtoReflect.Descriptor instead.
+func (*UpdateTaskReq) Descriptor() ([]byte, []int) {
+	return file_gin_mani_engine_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *UpdateTaskReq) GetTask() *Task {
+	if x != nil {
+		return x.Task
+	}
+	return nil
+}
+
+func (x *UpdateTaskReq) GetBase() *Base {
+	if x != nil {
+		return x.Base
+	}
+	return nil
+}
+
+type UpdateTaskResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	BaseResp *BaseResp `protobuf:"bytes,255,opt,name=base_resp,json=baseResp,proto3" json:"base_resp,omitempty"`
+}
+
+func (x *UpdateTaskResp) Reset() {
+	*x = UpdateTaskResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gin_mani_engine_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateTaskResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateTaskResp) ProtoMessage() {}
+
+func (x *UpdateTaskResp) ProtoReflect() protoreflect.Message {
+	mi := &file_gin_mani_engine_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateTaskResp.ProtoReflect.Descriptor instead.
+func (*UpdateTaskResp) Descriptor() ([]byte, []int) {
+	return file_gin_mani_engine_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *UpdateTaskResp) GetBaseResp() *BaseResp {
+	if x != nil {
+		return x.BaseResp
+	}
+	return nil
+}
+
 var File_gin_mani_engine_proto protoreflect.FileDescriptor
 
 var file_gin_mani_engine_proto_rawDesc = []byte{
@@ -352,20 +682,72 @@ var file_gin_mani_engine_proto_rawDesc = []byte{
 	0x03, 0x75, 0x72, 0x6c, 0x12, 0x2f, 0x0a, 0x09, 0x62, 0x61, 0x73, 0x65, 0x5f, 0x72, 0x65, 0x73,
 	0x70, 0x18, 0xff, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61,
 	0x6e, 0x69, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x52, 0x08, 0x62, 0x61, 0x73,
-	0x65, 0x52, 0x65, 0x73, 0x70, 0x2a, 0x25, 0x0a, 0x0a, 0x46, 0x69, 0x6c, 0x65, 0x41, 0x63, 0x74,
-	0x69, 0x6f, 0x6e, 0x12, 0x17, 0x0a, 0x13, 0x75, 0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x5f, 0x66,
-	0x69, 0x6c, 0x65, 0x5f, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x10, 0x00, 0x32, 0xa5, 0x01, 0x0a,
-	0x10, 0x47, 0x69, 0x6e, 0x45, 0x6e, 0x67, 0x69, 0x6e, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x12, 0x4c, 0x0a, 0x0f, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f, 0x53, 0x65,
-	0x72, 0x76, 0x65, 0x72, 0x12, 0x1b, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x46,
-	0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x52, 0x65,
-	0x71, 0x1a, 0x1c, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x46, 0x69, 0x6c, 0x65,
-	0x55, 0x72, 0x69, 0x54, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x12,
-	0x43, 0x0a, 0x0c, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f, 0x43, 0x72, 0x6d, 0x12,
-	0x18, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72,
-	0x69, 0x54, 0x6f, 0x43, 0x72, 0x6d, 0x52, 0x65, 0x71, 0x1a, 0x19, 0x2e, 0x70, 0x62, 0x5f, 0x6d,
-	0x61, 0x6e, 0x69, 0x2e, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f, 0x43, 0x72, 0x6d,
-	0x52, 0x65, 0x73, 0x70, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x22, 0x56, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x12, 0x21, 0x0a, 0x04, 0x74, 0x61, 0x73, 0x6b, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x54,
+	0x61, 0x73, 0x6b, 0x52, 0x04, 0x74, 0x61, 0x73, 0x6b, 0x12, 0x22, 0x0a, 0x04, 0x62, 0x61, 0x73,
+	0x65, 0x18, 0xff, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61,
+	0x6e, 0x69, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x04, 0x62, 0x61, 0x73, 0x65, 0x22, 0x41, 0x0a,
+	0x0e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x12,
+	0x2f, 0x0a, 0x09, 0x62, 0x61, 0x73, 0x65, 0x5f, 0x72, 0x65, 0x73, 0x70, 0x18, 0xff, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x42, 0x61,
+	0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x52, 0x08, 0x62, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x22, 0xab, 0x01, 0x0a, 0x17, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x42, 0x79,
+	0x43, 0x6f, 0x6e, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x12, 0x17, 0x0a, 0x07,
+	0x74, 0x61, 0x73, 0x6b, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x74,
+	0x61, 0x73, 0x6b, 0x49, 0x64, 0x12, 0x17, 0x0a, 0x07, 0x72, 0x75, 0x6c, 0x65, 0x5f, 0x69, 0x64,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x72, 0x75, 0x6c, 0x65, 0x49, 0x64, 0x12, 0x3a,
+	0x0a, 0x0d, 0x65, 0x78, 0x65, 0x63, 0x75, 0x74, 0x65, 0x5f, 0x73, 0x74, 0x61, 0x74, 0x65, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x15, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e,
+	0x45, 0x78, 0x65, 0x63, 0x75, 0x74, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x52, 0x0c, 0x65, 0x78,
+	0x65, 0x63, 0x75, 0x74, 0x65, 0x53, 0x74, 0x61, 0x74, 0x65, 0x12, 0x22, 0x0a, 0x04, 0x62, 0x61,
+	0x73, 0x65, 0x18, 0xff, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x70, 0x62, 0x5f, 0x6d,
+	0x61, 0x6e, 0x69, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x04, 0x62, 0x61, 0x73, 0x65, 0x22, 0x77,
+	0x0a, 0x18, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x42, 0x79, 0x43, 0x6f, 0x6e,
+	0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x12, 0x2a, 0x0a, 0x09, 0x74, 0x61,
+	0x73, 0x6b, 0x5f, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x0d, 0x2e,
+	0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x08, 0x74, 0x61,
+	0x73, 0x6b, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x2f, 0x0a, 0x09, 0x62, 0x61, 0x73, 0x65, 0x5f, 0x72,
+	0x65, 0x73, 0x70, 0x18, 0xff, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x70, 0x62, 0x5f,
+	0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x52, 0x08, 0x62,
+	0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x22, 0x56, 0x0a, 0x0d, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x12, 0x21, 0x0a, 0x04, 0x74, 0x61, 0x73, 0x6b,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69,
+	0x2e, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x04, 0x74, 0x61, 0x73, 0x6b, 0x12, 0x22, 0x0a, 0x04, 0x62,
+	0x61, 0x73, 0x65, 0x18, 0xff, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x70, 0x62, 0x5f,
+	0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x52, 0x04, 0x62, 0x61, 0x73, 0x65, 0x22,
+	0x41, 0x0a, 0x0e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x73,
+	0x70, 0x12, 0x2f, 0x0a, 0x09, 0x62, 0x61, 0x73, 0x65, 0x5f, 0x72, 0x65, 0x73, 0x70, 0x18, 0xff,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e,
+	0x42, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x52, 0x08, 0x62, 0x61, 0x73, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x2a, 0x25, 0x0a, 0x0a, 0x46, 0x69, 0x6c, 0x65, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e,
+	0x12, 0x17, 0x0a, 0x13, 0x75, 0x6e, 0x6b, 0x6e, 0x6f, 0x77, 0x6e, 0x5f, 0x66, 0x69, 0x6c, 0x65,
+	0x5f, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x10, 0x00, 0x32, 0x80, 0x03, 0x0a, 0x10, 0x47, 0x69,
+	0x6e, 0x45, 0x6e, 0x67, 0x69, 0x6e, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x4c,
+	0x0a, 0x0f, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x65,
+	0x72, 0x12, 0x1b, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x46, 0x69, 0x6c, 0x65,
+	0x55, 0x72, 0x69, 0x54, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x1c,
+	0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69,
+	0x54, 0x6f, 0x53, 0x65, 0x72, 0x76, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x12, 0x43, 0x0a, 0x0c,
+	0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f, 0x43, 0x72, 0x6d, 0x12, 0x18, 0x2e, 0x70,
+	0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f,
+	0x43, 0x72, 0x6d, 0x52, 0x65, 0x71, 0x1a, 0x19, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69,
+	0x2e, 0x46, 0x69, 0x6c, 0x65, 0x55, 0x72, 0x69, 0x54, 0x6f, 0x43, 0x72, 0x6d, 0x52, 0x65, 0x73,
+	0x70, 0x12, 0x3d, 0x0a, 0x0a, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x12,
+	0x16, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x71, 0x1a, 0x17, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e,
+	0x69, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x73, 0x70,
+	0x12, 0x5b, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x42, 0x79, 0x43,
+	0x6f, 0x6e, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x20, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61,
+	0x6e, 0x69, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x42, 0x79, 0x43, 0x6f,
+	0x6e, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x1a, 0x21, 0x2e, 0x70, 0x62, 0x5f,
+	0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x54, 0x61, 0x73, 0x6b, 0x42, 0x79,
+	0x43, 0x6f, 0x6e, 0x64, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x12, 0x3d, 0x0a,
+	0x0a, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x12, 0x16, 0x2e, 0x70, 0x62,
+	0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b,
+	0x52, 0x65, 0x71, 0x1a, 0x17, 0x2e, 0x70, 0x62, 0x5f, 0x6d, 0x61, 0x6e, 0x69, 0x2e, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -381,32 +763,56 @@ func file_gin_mani_engine_proto_rawDescGZIP() []byte {
 }
 
 var file_gin_mani_engine_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_gin_mani_engine_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_gin_mani_engine_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_gin_mani_engine_proto_goTypes = []interface{}{
-	(FileAction)(0),             // 0: pb_mani.FileAction
-	(*FileUriToServerReq)(nil),  // 1: pb_mani.FileUriToServerReq
-	(*FileUriToServerResp)(nil), // 2: pb_mani.FileUriToServerResp
-	(*FileUriToCrmReq)(nil),     // 3: pb_mani.FileUriToCrmReq
-	(*FileUriToCrmResp)(nil),    // 4: pb_mani.FileUriToCrmResp
-	(*Base)(nil),                // 5: pb_mani.Base
-	(*BaseResp)(nil),            // 6: pb_mani.BaseResp
+	(FileAction)(0),                  // 0: pb_mani.FileAction
+	(*FileUriToServerReq)(nil),       // 1: pb_mani.FileUriToServerReq
+	(*FileUriToServerResp)(nil),      // 2: pb_mani.FileUriToServerResp
+	(*FileUriToCrmReq)(nil),          // 3: pb_mani.FileUriToCrmReq
+	(*FileUriToCrmResp)(nil),         // 4: pb_mani.FileUriToCrmResp
+	(*CreateTaskReq)(nil),            // 5: pb_mani.CreateTaskReq
+	(*CreateTaskResp)(nil),           // 6: pb_mani.CreateTaskResp
+	(*QueryTaskByConditionReq)(nil),  // 7: pb_mani.QueryTaskByConditionReq
+	(*QueryTaskByConditionResp)(nil), // 8: pb_mani.QueryTaskByConditionResp
+	(*UpdateTaskReq)(nil),            // 9: pb_mani.UpdateTaskReq
+	(*UpdateTaskResp)(nil),           // 10: pb_mani.UpdateTaskResp
+	(*Base)(nil),                     // 11: pb_mani.Base
+	(*BaseResp)(nil),                 // 12: pb_mani.BaseResp
+	(*Task)(nil),                     // 13: pb_mani.Task
+	(ExecuteState)(0),                // 14: pb_mani.ExecuteState
 }
 var file_gin_mani_engine_proto_depIdxs = []int32{
-	0, // 0: pb_mani.FileUriToServerReq.file_action:type_name -> pb_mani.FileAction
-	5, // 1: pb_mani.FileUriToServerReq.base:type_name -> pb_mani.Base
-	6, // 2: pb_mani.FileUriToServerResp.base_resp:type_name -> pb_mani.BaseResp
-	0, // 3: pb_mani.FileUriToCrmReq.file_action:type_name -> pb_mani.FileAction
-	5, // 4: pb_mani.FileUriToCrmReq.base:type_name -> pb_mani.Base
-	6, // 5: pb_mani.FileUriToCrmResp.base_resp:type_name -> pb_mani.BaseResp
-	1, // 6: pb_mani.GinEngineService.FileUriToServer:input_type -> pb_mani.FileUriToServerReq
-	3, // 7: pb_mani.GinEngineService.FileUriToCrm:input_type -> pb_mani.FileUriToCrmReq
-	2, // 8: pb_mani.GinEngineService.FileUriToServer:output_type -> pb_mani.FileUriToServerResp
-	4, // 9: pb_mani.GinEngineService.FileUriToCrm:output_type -> pb_mani.FileUriToCrmResp
-	8, // [8:10] is the sub-list for method output_type
-	6, // [6:8] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	0,  // 0: pb_mani.FileUriToServerReq.file_action:type_name -> pb_mani.FileAction
+	11, // 1: pb_mani.FileUriToServerReq.base:type_name -> pb_mani.Base
+	12, // 2: pb_mani.FileUriToServerResp.base_resp:type_name -> pb_mani.BaseResp
+	0,  // 3: pb_mani.FileUriToCrmReq.file_action:type_name -> pb_mani.FileAction
+	11, // 4: pb_mani.FileUriToCrmReq.base:type_name -> pb_mani.Base
+	12, // 5: pb_mani.FileUriToCrmResp.base_resp:type_name -> pb_mani.BaseResp
+	13, // 6: pb_mani.CreateTaskReq.task:type_name -> pb_mani.Task
+	11, // 7: pb_mani.CreateTaskReq.base:type_name -> pb_mani.Base
+	12, // 8: pb_mani.CreateTaskResp.base_resp:type_name -> pb_mani.BaseResp
+	14, // 9: pb_mani.QueryTaskByConditionReq.execute_state:type_name -> pb_mani.ExecuteState
+	11, // 10: pb_mani.QueryTaskByConditionReq.base:type_name -> pb_mani.Base
+	13, // 11: pb_mani.QueryTaskByConditionResp.task_list:type_name -> pb_mani.Task
+	12, // 12: pb_mani.QueryTaskByConditionResp.base_resp:type_name -> pb_mani.BaseResp
+	13, // 13: pb_mani.UpdateTaskReq.task:type_name -> pb_mani.Task
+	11, // 14: pb_mani.UpdateTaskReq.base:type_name -> pb_mani.Base
+	12, // 15: pb_mani.UpdateTaskResp.base_resp:type_name -> pb_mani.BaseResp
+	1,  // 16: pb_mani.GinEngineService.FileUriToServer:input_type -> pb_mani.FileUriToServerReq
+	3,  // 17: pb_mani.GinEngineService.FileUriToCrm:input_type -> pb_mani.FileUriToCrmReq
+	5,  // 18: pb_mani.GinEngineService.CreateTask:input_type -> pb_mani.CreateTaskReq
+	7,  // 19: pb_mani.GinEngineService.QueryTaskByCondition:input_type -> pb_mani.QueryTaskByConditionReq
+	9,  // 20: pb_mani.GinEngineService.UpdateTask:input_type -> pb_mani.UpdateTaskReq
+	2,  // 21: pb_mani.GinEngineService.FileUriToServer:output_type -> pb_mani.FileUriToServerResp
+	4,  // 22: pb_mani.GinEngineService.FileUriToCrm:output_type -> pb_mani.FileUriToCrmResp
+	6,  // 23: pb_mani.GinEngineService.CreateTask:output_type -> pb_mani.CreateTaskResp
+	8,  // 24: pb_mani.GinEngineService.QueryTaskByCondition:output_type -> pb_mani.QueryTaskByConditionResp
+	10, // 25: pb_mani.GinEngineService.UpdateTask:output_type -> pb_mani.UpdateTaskResp
+	21, // [21:26] is the sub-list for method output_type
+	16, // [16:21] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_gin_mani_engine_proto_init() }
@@ -464,6 +870,78 @@ func file_gin_mani_engine_proto_init() {
 				return nil
 			}
 		}
+		file_gin_mani_engine_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateTaskReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gin_mani_engine_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateTaskResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gin_mani_engine_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryTaskByConditionReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gin_mani_engine_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryTaskByConditionResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gin_mani_engine_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateTaskReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gin_mani_engine_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateTaskResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -471,7 +949,7 @@ func file_gin_mani_engine_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gin_mani_engine_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   4,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -500,6 +978,9 @@ const _ = grpc.SupportPackageIsVersion6
 type GinEngineServiceClient interface {
 	FileUriToServer(ctx context.Context, in *FileUriToServerReq, opts ...grpc.CallOption) (*FileUriToServerResp, error)
 	FileUriToCrm(ctx context.Context, in *FileUriToCrmReq, opts ...grpc.CallOption) (*FileUriToCrmResp, error)
+	CreateTask(ctx context.Context, in *CreateTaskReq, opts ...grpc.CallOption) (*CreateTaskResp, error)
+	QueryTaskByCondition(ctx context.Context, in *QueryTaskByConditionReq, opts ...grpc.CallOption) (*QueryTaskByConditionResp, error)
+	UpdateTask(ctx context.Context, in *UpdateTaskReq, opts ...grpc.CallOption) (*UpdateTaskResp, error)
 }
 
 type ginEngineServiceClient struct {
@@ -528,10 +1009,40 @@ func (c *ginEngineServiceClient) FileUriToCrm(ctx context.Context, in *FileUriTo
 	return out, nil
 }
 
+func (c *ginEngineServiceClient) CreateTask(ctx context.Context, in *CreateTaskReq, opts ...grpc.CallOption) (*CreateTaskResp, error) {
+	out := new(CreateTaskResp)
+	err := c.cc.Invoke(ctx, "/pb_mani.GinEngineService/CreateTask", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ginEngineServiceClient) QueryTaskByCondition(ctx context.Context, in *QueryTaskByConditionReq, opts ...grpc.CallOption) (*QueryTaskByConditionResp, error) {
+	out := new(QueryTaskByConditionResp)
+	err := c.cc.Invoke(ctx, "/pb_mani.GinEngineService/QueryTaskByCondition", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ginEngineServiceClient) UpdateTask(ctx context.Context, in *UpdateTaskReq, opts ...grpc.CallOption) (*UpdateTaskResp, error) {
+	out := new(UpdateTaskResp)
+	err := c.cc.Invoke(ctx, "/pb_mani.GinEngineService/UpdateTask", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GinEngineServiceServer is the server API for GinEngineService service.
 type GinEngineServiceServer interface {
 	FileUriToServer(context.Context, *FileUriToServerReq) (*FileUriToServerResp, error)
 	FileUriToCrm(context.Context, *FileUriToCrmReq) (*FileUriToCrmResp, error)
+	CreateTask(context.Context, *CreateTaskReq) (*CreateTaskResp, error)
+	QueryTaskByCondition(context.Context, *QueryTaskByConditionReq) (*QueryTaskByConditionResp, error)
+	UpdateTask(context.Context, *UpdateTaskReq) (*UpdateTaskResp, error)
 }
 
 // UnimplementedGinEngineServiceServer can be embedded to have forward compatible implementations.
@@ -543,6 +1054,15 @@ func (*UnimplementedGinEngineServiceServer) FileUriToServer(context.Context, *Fi
 }
 func (*UnimplementedGinEngineServiceServer) FileUriToCrm(context.Context, *FileUriToCrmReq) (*FileUriToCrmResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FileUriToCrm not implemented")
+}
+func (*UnimplementedGinEngineServiceServer) CreateTask(context.Context, *CreateTaskReq) (*CreateTaskResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
+}
+func (*UnimplementedGinEngineServiceServer) QueryTaskByCondition(context.Context, *QueryTaskByConditionReq) (*QueryTaskByConditionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method QueryTaskByCondition not implemented")
+}
+func (*UnimplementedGinEngineServiceServer) UpdateTask(context.Context, *UpdateTaskReq) (*UpdateTaskResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateTask not implemented")
 }
 
 func RegisterGinEngineServiceServer(s *grpc.Server, srv GinEngineServiceServer) {
@@ -585,6 +1105,60 @@ func _GinEngineService_FileUriToCrm_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GinEngineService_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTaskReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GinEngineServiceServer).CreateTask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb_mani.GinEngineService/CreateTask",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GinEngineServiceServer).CreateTask(ctx, req.(*CreateTaskReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GinEngineService_QueryTaskByCondition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryTaskByConditionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GinEngineServiceServer).QueryTaskByCondition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb_mani.GinEngineService/QueryTaskByCondition",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GinEngineServiceServer).QueryTaskByCondition(ctx, req.(*QueryTaskByConditionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GinEngineService_UpdateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateTaskReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GinEngineServiceServer).UpdateTask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb_mani.GinEngineService/UpdateTask",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GinEngineServiceServer).UpdateTask(ctx, req.(*UpdateTaskReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _GinEngineService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "pb_mani.GinEngineService",
 	HandlerType: (*GinEngineServiceServer)(nil),
@@ -596,6 +1170,18 @@ var _GinEngineService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FileUriToCrm",
 			Handler:    _GinEngineService_FileUriToCrm_Handler,
+		},
+		{
+			MethodName: "CreateTask",
+			Handler:    _GinEngineService_CreateTask_Handler,
+		},
+		{
+			MethodName: "QueryTaskByCondition",
+			Handler:    _GinEngineService_QueryTaskByCondition_Handler,
+		},
+		{
+			MethodName: "UpdateTask",
+			Handler:    _GinEngineService_UpdateTask_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
