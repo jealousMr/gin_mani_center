@@ -7,3 +7,8 @@ database:
   user: "dms"
   pass: "lcx-machine0918LMY"
   name: "manidb"
+
+client:
+  user: ":8088"
+  center: ":8089"
+  engine: ":8087"

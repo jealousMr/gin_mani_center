@@ -4,7 +4,9 @@ package pb_mani;
 
 enum FileAction{
   unknown_file_action = 0;
-
+  default_all_action = 1;
+  open_all_action = 2;
+  default_image_action = 3;
 }
 
 message FileUriToServerReq{
@@ -15,12 +17,14 @@ message FileUriToServerReq{
 }
 
 message FileUriToServerResp{
-  string save_url = 1;
+  string file_name = 1;
+  string save_url = 2;
   BaseResp base_resp = 255;
 }
 
 message FileUriToCrmReq{
   string save_url = 1;
+  string file_name = 2;
   FileAction file_action = 3;
   Base base = 255;
 }
@@ -36,6 +40,7 @@ message CreateTaskReq{
 }
 
 message CreateTaskResp{
+  string task_id = 1;
   BaseResp base_resp = 255;
 }
 

@@ -15,6 +15,13 @@ import (
 type S struct {
 }
 
+func (s S) ExecuteRule(ctx context.Context, req *pb_mani.ExecuteRuleReq) (*pb_mani.ExecuteRuleResp, error) {
+	logx.Infoln("ExecuteRule req: %v", req)
+	resp, err := handler.ExecuteRule(ctx, req)
+	logx.Infoln("ExecuteRule resp: %v", resp)
+	return resp, err
+}
+
 func (s S) AddRule(ctx context.Context, req *pb_mani.AddRuleReq) (*pb_mani.AddRuleResp, error) {
 	logx.Infoln("AddRule req: %v", req)
 	resp, err := handler.AddRule(ctx, req)

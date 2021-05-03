@@ -55,6 +55,16 @@ message UpdateRuleResp{
   BaseResp base_resp = 255;
 }
 
+message ExecuteRuleReq{
+  Rule rule = 1;
+  Base base = 255;
+}
+
+message ExecuteRuleResp{
+  string task_id = 1;
+  BaseResp base_resp = 255;
+}
+
 
 
 service GinCenterService{
@@ -62,4 +72,6 @@ service GinCenterService{
   rpc GetRuleByRuleType(GetRuleByRuleTypeReq) returns(GetRuleByRuleTypeResp);
   rpc GetRuleByCondition(GetRuleByConditionReq) returns(GetRuleByConditionResp);
   rpc UpdateRule(UpdateRuleReq) returns(UpdateRuleResp);
+
+  rpc ExecuteRule(ExecuteRuleReq) returns(ExecuteRuleResp);
 }

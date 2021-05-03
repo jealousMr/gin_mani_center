@@ -6,9 +6,13 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"time"
+	"github.com/gomodule/redigo/redis"
 )
 
 var dbProxy *gorm.DB
+
+var redisProxy  *redis.Pool
 
 func InitDB() (err error) {
 	cf := conf.GetConfig()
@@ -23,4 +27,31 @@ func GetDBProxy() (*gorm.DB, error) {
 		err = InitDB()
 	}
 	return dbProxy, err
+}
+
+func GetRedisProxy()*redis.Pool{
+	if redisProxy == nil{
+		redisProxy = InitRedisPool()
+	}
+	return redisProxy
+}
+
+func InitRedisPool() *redis.Pool{
+	server :=  "127.0.0.1:6379"
+	pool := &redis.Pool{
+		MaxIdle:     3,                    //最大空闲连接数
+		IdleTimeout: 240 * time.Second,    //最大空闲连接时间
+		Dial: func() (redis.Conn, error) {
+			c, err := redis.Dial("tcp", server)
+			if err != nil {
+				return nil, err
+			}
+			return c, err
+		},
+		TestOnBorrow: func(c redis.Conn, t time.Time) error {
+			_, err := c.Do("PING")
+			return err
+		},
+	}
+	return pool
 }
