@@ -10,7 +10,7 @@ import (
 )
 
 func checkExecuteRule(req *pb_mani.ExecuteRuleReq)error{
-	if req.Rule == nil || req.Rule.RuleConfig == nil{
+	if req.Rule == nil {
 		return errors.New(util.MsgParamError)
 	}
 	return nil

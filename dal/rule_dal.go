@@ -81,3 +81,18 @@ func UpdateRule(ctx context.Context, ruleId string, updateFiled map[string]inter
 	}
 	return nil
 }
+
+func GetRuleById(ctx context.Context, ruleId string) (*model.RuleModel, error) {
+	db, err := GetDBProxy()
+	if err != nil {
+		logx.Errorf("db get error:%v", err)
+		return nil, err
+	}
+	rule := &model.RuleModel{}
+	if err := db.Table(model.RuleTableName()).Where("rule_id = ?", ruleId).Error; err != nil {
+		logx.Errorf("dal GetRuleById error:%v", err)
+		return nil, err
+	}
+	return rule, nil
+
+}

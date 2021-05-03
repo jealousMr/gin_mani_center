@@ -2,7 +2,6 @@ package logic
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"gin_mani_center/clients"
 	"gin_mani_center/dal"
@@ -87,21 +86,12 @@ func ExecuteRule(ctx context.Context, rule *pb_mani.Rule) (taskId string, err er
 
 func getRuleId(ctx context.Context, rule *pb_mani.Rule, user string) (string, error) {
 	if rule.RuleId != "" {
-		rules, err := dal.GetRuleByCondition(ctx,
-			rule.RuleId,
-			"",
-			pb_mani.RuleType_unknown_rule_type,
-			pb_mani.RuleState_rule_state_valid,
-			pb_mani.ExecuteType_unknown_exec_type)
+		ruleModel, err := dal.GetRuleById(ctx,rule.RuleId)
 		if err != nil {
-			logx.Errorf("getRuleByRuleId dal GetRuleByCondition error:%v", err)
+			logx.Errorf("getRuleByRuleId dal GetRuleById error:%v", err)
 			return "", err
 		}
-		if len(rules) == 0 {
-			logx.Errorf("getRuleByRuleId no rule")
-			return "", errors.New("no rule")
-		}
-		return rules[0].RuleId, nil
+		return ruleModel.RuleId, nil
 	}
 	ruleId := util.GenUID()
 	ruleModel := &model.RuleModel{
