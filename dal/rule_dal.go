@@ -89,7 +89,7 @@ func GetRuleById(ctx context.Context, ruleId string) (*model.RuleModel, error) {
 		return nil, err
 	}
 	rule := &model.RuleModel{}
-	if err := db.Table(model.RuleTableName()).Where("rule_id = ?", ruleId).Error; err != nil {
+	if err := db.Table(model.RuleTableName()).Where("rule_id = ?", ruleId).Find(&rule).Error; err != nil {
 		logx.Errorf("dal GetRuleById error:%v", err)
 		return nil, err
 	}
