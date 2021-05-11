@@ -27,11 +27,11 @@ func GetRuleByRuleType(ctx context.Context, ruleType pb_mani.RuleType, limit, of
 		return nil, 0, err
 	}
 	ruleList = make([]*model.RuleModel, 0)
-	if err = db.Table(model.RuleTableName()).Offset(offset).Limit(limit).Find(&ruleList).Error; err != nil {
+	if err = db.Table(model.RuleTableName()).Where("rule_type = ?",ruleType).Offset(offset).Limit(limit).Find(&ruleList).Error; err != nil {
 		logx.Errorf("dal GetRuleByRuleType error:%v", err)
 		return nil, 0, err
 	}
-	if err = db.Table(model.RuleTableName()).Count(&total).Error; err != nil {
+	if err = db.Table(model.RuleTableName()).Where("rule_type = ?",ruleType).Count(&total).Error; err != nil {
 		logx.Errorf("dal GetRuleByRuleType count error:%v", err)
 		return nil, 0, err
 	}
@@ -51,7 +51,7 @@ func GetRuleByCondition(ctx context.Context, ruleId, userId string, ruleType pb_
 		db = db.Where("rule_id = ?", ruleId)
 	}
 	if userId != "" {
-		db = db.Where("user_id = ?", userId)
+		db = db.Where("user = ?", userId)
 	}
 	if ruleType != pb_mani.RuleType_unknown_rule_type {
 		db = db.Where("rule_type = ?", ruleType)

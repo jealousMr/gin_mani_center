@@ -11,7 +11,7 @@ import (
 func TestExecuteRule(t *testing.T) {
 	req := &pb_mani.ExecuteRuleReq{
 		Rule: &pb_mani.Rule{
-			RuleId: "19e3ca476e516df01f3c814b042ee105",
+			RuleId: "c518ef3f360856b84d971b54623de989",
 		},
 	}
 	resp, err := handler.ExecuteRule(context.Background(), req)

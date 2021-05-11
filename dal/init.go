@@ -16,7 +16,7 @@ var redisProxy  *redis.Pool
 
 func InitDB() (err error) {
 	cf := conf.GetConfig()
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", cf.Database.User, cf.Database.Pass, cf.Server.Ip, cf.Database.Port, cf.Database.Name)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", cf.Database.User, cf.Database.Pass, cf.Database.Addr, cf.Database.Port, cf.Database.Name)
 	dbProxy, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	return
 }

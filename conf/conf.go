@@ -1,9 +1,11 @@
 package conf
 
 import (
+	"fmt"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
+	"os"
 )
 
 type Configs struct {
@@ -12,6 +14,7 @@ type Configs struct {
 		Ip string `yaml:"ip"`
 	}
 	Database struct{
+		Addr string `yaml:"addr"`
 		Port string `yaml:"port"`
 		User string `yaml:"user"`
 		Pass string `yaml:"pass"`
@@ -26,7 +29,8 @@ type Configs struct {
 
 func GetConfig() *Configs{
 	config := &Configs{}
-	content, err := ioutil.ReadFile("/Users/mjea/go/src/gin_mani_center/conf/meta.yaml")
+	cpath := fmt.Sprintf("%s/src/gin_mani_center/conf/meta.yaml",os.Getenv("GOPATH"))
+	content, err := ioutil.ReadFile(cpath)
 	if err != nil {
 		log.Fatalf("解析config.yaml读取错误: %v", err)
 	}
